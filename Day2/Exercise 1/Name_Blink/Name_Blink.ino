@@ -14,7 +14,7 @@ void setup() {
 void loop() {
 
   //Letter L
-  dot(); 
+  dot();
   dash();
   dot();
   dot();
@@ -26,19 +26,18 @@ void loop() {
   delay(TWAIT);
 
   // Letter O
-  for (int i = 0; i < 3; i++)
-  {
+  for (int i = 0; i < 3; i++) {
     dash();
   }
   delay(TWAIT);
 
-//Letter U
+  //Letter U
   dot();
   dot();
   dash();
 };
 
-void dot(){
+void dot() {
   digitalWrite(LED_BUILTIN, HIGH);
   delay(SBLINK);
   digitalWrite(LED_BUILTIN, LOW);

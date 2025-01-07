@@ -44,7 +44,7 @@ void dot()
   delay(SBLINK);
   digitalWrite(LED_BUILTIN, LOW);
   delay(OWAIT);
-};
+}
 
 void dash()
 {
@@ -52,4 +52,4 @@ void dash()
   delay(LBLINK);
   digitalWrite(LED_BUILTIN, LOW);
   delay(OWAIT);
-};
+}

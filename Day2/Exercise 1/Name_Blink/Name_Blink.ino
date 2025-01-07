@@ -12,28 +12,30 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
+
+  //Letter L
   dot(); 
   dash();
   dot();
   dot();
   delay(TWAIT);
 
+  //Letter I
   dot();
   dot();
   delay(TWAIT);
 
-    // Making the letter O
+  // Letter O
   for (int i = 0; i < 3; i++)
   {
     dash();
   }
   delay(TWAIT);
 
+//Letter U
   dot();
   dot();
   dash();
-
-
 };
 
 void dot(){

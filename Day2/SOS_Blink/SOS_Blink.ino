@@ -1,7 +1,8 @@
 
-#define SBLINK 500
-#define LBLINK 1000
-#define WAIT 1000
+#define SBLINK 200
+#define LBLINK 600
+#define OWAIT 200
+#define TWAIT 600
 
 // the setup function runs once when you press reset or power the board
 void setup()
@@ -17,23 +18,24 @@ void loop()
   for (int i = 0; i < 3; i++)
   {
     dot();
-  };
+  }
 
-  delay(WAIT);
+  delay(TWAIT);
 
   // Making the letter O
   for (int i = 0; i < 3; i++)
   {
     dash();
-  };
+  }
 
-  delay(WAIT);
+  delay(TWAIT);
 
   // Making the letter S in Morse
   for (int i = 0; i < 3; i++)
   {
-    dot
-  };
+    dot();
+  }
+
 };
 
 void dot()
@@ -41,7 +43,7 @@ void dot()
   digitalWrite(LED_BUILTIN, HIGH);
   delay(SBLINK);
   digitalWrite(LED_BUILTIN, LOW);
-  delay(SBLINK);
+  delay(OWAIT);
 };
 
 void dash()
@@ -49,5 +51,5 @@ void dash()
   digitalWrite(LED_BUILTIN, HIGH);
   delay(LBLINK);
   digitalWrite(LED_BUILTIN, LOW);
-  delay(SBLINK);
+  delay(OWAIT);
 };

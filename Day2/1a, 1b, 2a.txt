@@ -9,3 +9,6 @@ It would be an issue with morse codes because letters are represented using 1 to
 
 The value of a after the loop will be a = 6
 because the loop it increments 5 times as a is defined as 1 before the loop
+
+2a. 
+The operand is a remainder. Its function is to output a high signal (1) if the number it divides with becomes a fractional quiotient. Oherwise it outputs a low (0) when the division is exact with no remainder.

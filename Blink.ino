@@ -36,29 +36,29 @@ void setup() {
 void loop() {
   // Making the letter S in Morse
   for (int i = 0; i < 3; i++) {
+    delay(SBLINK);                   
     digitalWrite(LED_BUILTIN, HIGH); 
     delay(SBLINK);                  
     digitalWrite(LED_BUILTIN, LOW);  
-    delay(SBLINK);                   
   }
 
   delay(WAIT);
 
 //Making the letter O
   for (int i = 0; i < 3; i++) {
+    delay(LBLINK);                   
     digitalWrite(LED_BUILTIN, HIGH); 
     delay(LBLINK);                  
     digitalWrite(LED_BUILTIN, LOW);  
-    delay(LBLINK);                   
   }
 
   delay(WAIT);
 
   // Making the letter S in Morse
   for (int i = 0; i < 3; i++) {
+    delay(SBLINK);                   
     digitalWrite(LED_BUILTIN, HIGH); 
     delay(SBLINK);                  
     digitalWrite(LED_BUILTIN, LOW);  
-    delay(SBLINK);                   
   }
 }

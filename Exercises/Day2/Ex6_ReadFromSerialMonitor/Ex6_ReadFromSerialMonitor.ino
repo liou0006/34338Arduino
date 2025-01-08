@@ -17,6 +17,7 @@ void loop() {
   Serial.println((char)incomingByte);
   delay(1000);
 
+    //When inputting something in control we check if it is a valid character, if not we close the LEDs 
   if (incomingByte != -1) {
     if(incomingByte == 'a' || incomingByte == 'b' || incomingByte == 'c' || incomingByte == 'd' || incomingByte == 'e'){
       incomingByte = incomingByte;
@@ -24,7 +25,7 @@ void loop() {
       incomingByte = 'Invalid';
     }
   } else {
-    incomingByte = iB2;
+    incomingByte = iB2; //If the input is -1 we keep the previous input
   }
 
   switch (incomingByte) {

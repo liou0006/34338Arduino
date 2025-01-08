@@ -1,4 +1,4 @@
-char incomingByte = 0;
+int incomingByte = 0;
 
 void setup()
 {
@@ -15,7 +15,7 @@ void loop()
 
     incomingByte = Serial.read();
 
-    switch (incomingByte)
+    switch ((char) incomingByte)
     {
     case 'a':
          digitalWrite(2, HIGH); 

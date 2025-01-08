@@ -17,4 +17,6 @@ The end could be because it states it is in decimal numbers or the decimal numbe
 we receive the character what we wrote because we forced the type of incomingByte to char type.
 
 6a
-char is a type of 
+char is a data type. it is used to store either individual characters or is a building block for a string
+
+6b

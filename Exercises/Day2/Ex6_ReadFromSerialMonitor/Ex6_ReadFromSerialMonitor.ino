@@ -26,20 +26,6 @@ void loop() {
   } else {
     incomingByte = iB2;
   }
-  /*else if (incomingByte != 'a' || incomingByte != 'b' || incomingByte != 'c' || incomingByte != 'd' || incomingByte != 'e'){
-    incomingByte = 'Invalid';
-  }*/
-
-  
-  /*if (incomingByte != 'a' || incomingByte != 'b' || incomingByte != 'c' || incomingByte != 'd' || incomingByte != 'e') {
-    Serial.println("I have received an invalid character");
-    digitalWrite(2, LOW);
-    digitalWrite(3, LOW);
-    digitalWrite(4, LOW);
-    digitalWrite(5, LOW);
-    digitalWrite(6, LOW);
-  }*/
-
 
   switch (incomingByte) {
     case 'a':

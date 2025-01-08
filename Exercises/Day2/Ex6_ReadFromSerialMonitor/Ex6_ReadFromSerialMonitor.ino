@@ -26,7 +26,7 @@ void loop() {
   } else {
     incomingByte = iB2;
   }
-//hi
+
   switch (incomingByte) {
     case 'a':
       digitalWrite(2, HIGH);

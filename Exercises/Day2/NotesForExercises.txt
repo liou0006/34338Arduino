@@ -24,3 +24,12 @@ The result of mychar is:
 D
 
 The code it stores and converts character to integer numbers in terms of ASCII equivalence, and integer back to ASCII number equivalence and therefor it becomes D because the it is the equivalence of '68' in ASCII character which 
+
+7a 
+RBG value is way of representing the colors Red, Green and blue. These 3 are primary colors which with different combinations can create all the "needed" colors for Digital displays. 
+Depending on the intensity of each color, the final color changes. The intensity can vary from 0 to 255 which is what can be represented with 8 bits. 
+
+7b 
+The functions reads from the serial buffer and then converts into an integer. more numbers are seperated in the function, by either  comma space or newline 
+
+

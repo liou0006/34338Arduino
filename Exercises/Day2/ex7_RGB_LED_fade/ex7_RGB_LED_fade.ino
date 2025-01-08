@@ -1,6 +1,6 @@
-#define R_LED 2 
-#define G_LED 3 
-#define B_LED 4 
+#define R_LED 3 
+#define G_LED 5 
+#define B_LED 6 
 
 void setup() {
   pinMode(R_LED,OUTPUT);
@@ -34,8 +34,8 @@ void loop() {
 
 void setColor(int r, int g, int b) { 
 
-digitalWrite(R_LED, r); 
-digitalWrite(G_LED, g); 
-digitalWrite(B_LED, b); 
+analogWrite(R_LED, r); 
+analogWrite(G_LED, g); 
+analogWrite(B_LED, b); 
 
 }

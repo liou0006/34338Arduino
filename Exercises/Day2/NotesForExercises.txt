@@ -47,3 +47,8 @@ Voltage = (analog value/1023) * 5V
 where the analog value range from 0 to 1023 where 0 is 0V and 1023 is 5V
 
 We read an analog signal to be 665 which is the equivalence to 3.25V
+
+
+
+Our GitHub repository
+https://github.com/liou0006/34338Arduino

@@ -14,7 +14,7 @@ If we set it to "new line" instead of "no line ending" we receive other set of n
 The end could be because it states it is in decimal numbers or the decimal number of the NULL
 
 5f
-we receive the character what we wrote because we forced the type of incomingByte to char type.
+we receive the character that we wrote because we forced the type of incomingByte to char type instead of the initial integer type where it printed out the ASCII equivalence value.
 
 6a
 char is a data type. it is used to store either individual characters or is a building block for a string
@@ -32,4 +32,18 @@ Depending on the intensity of each color, the final color changes. The intensity
 7b 
 The functions reads from the serial buffer and then converts into an integer. more numbers are seperated in the function, by either  comma space or newline 
 
+8a
+the analogue value is represented by using an ADC to interpret the analog signal and convert it to discrete digital values.
+The Arduino Uno is using a 10-bit ADC in A0.
 
+8b
+The maximum voltage that can be read on A0 is 5 volt.
+
+8c
+yes, because when the analog value is converted it uses this formula which is being outputted:
+
+Voltage = (analog value/1023) * 5V
+
+where the analog value range from 0 to 1023 where 0 is 0V and 1023 is 5V
+
+We read an analog signal to be 665 which is the equivalence to 3.25V

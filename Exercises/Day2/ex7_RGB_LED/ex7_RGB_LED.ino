@@ -1,6 +1,6 @@
-#define R_LED 2 
-#define G_LED 3 
-#define B_LED 4 
+#define R_LED 3
+#define G_LED 5 
+#define B_LED 6 
 
 int val[3];
 int r_input = 0; 

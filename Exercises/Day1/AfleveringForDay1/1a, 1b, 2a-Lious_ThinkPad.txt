@@ -1,0 +1,35 @@
+1a. 
+We would need at least 4 binary bits to represent numbers from 0 to 9 but 4 bits are also able to represent numbers up to 15 
+
+It would be an issue with morse codes because letters are represented using 1 to 4 "bits" therefore it would overlap each other.
+
+
+1b.
+The value of a after the loop will be a = 6
+because the loop it increments 5 times as a is defined as 1 before the loop
+
+2a. 
+The operand is a remainder. Its function is to output a high signal (1) if the number it divides with becomes a fractional quotient. Otherwise it outputs a low (0) when the division is exact with no remainder.
+
+2d. 
+We can use the remainder operand with this line of code:
+
+if counter % 7
+	reset();
+
+The condition of the if-statement will become true when the counter reaches the max, and it will reset.
+
+
+3a.
+INPUT_PULLUP is used to set up a virtual resistor that sets the input pins voltage to a constant high 
+
+while INPUT outputs a random values on the pin without initializing the virtual resistors
+
+3b.
+! is a logical NOT 
+
+
+3d.
+It is in the wihle-loop so it is constant in terms of the refresh rate for the while loop.
+
+It is reasonable unless it takes too much power from the system

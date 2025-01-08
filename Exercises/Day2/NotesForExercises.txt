@@ -20,3 +20,7 @@ we receive the character what we wrote because we forced the type of incomingByt
 char is a data type. it is used to store either individual characters or is a building block for a string
 
 6b
+The result of mychar is:
+D
+
+The code it stores and converts character to integer numbers in terms of ASCII equivalence, and integer back to ASCII number equivalence and therefor it becomes D because the it is the equivalence of '68' in ASCII character which 

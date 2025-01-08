@@ -1,0 +1,20 @@
+5a
+Serial.available checks the serial port if there is bytes available to read from
+
+If the condition is true, the code reads the incoming byte and stores it in incomingByte variable
+
+And lastly prints it out what has been read from the byte from the serial port.
+
+5d
+incomingByte is defined as an integer therefor I will receive it in terms of numbers.
+I suppose it might be in terms of ASCII numbers or decimal numbers stated at the end of Serial.println where where it writes: DEC
+
+5e
+If we set it to "new line" instead of "no line ending" we receive other set of numbers than previously and always end with "I received: 10" before.
+The end could be because it states it is in decimal numbers or the decimal number of the NULL
+
+5f
+we receive the character what we wrote because we forced the type of incomingByte to char type.
+
+6a
+char is a type of 

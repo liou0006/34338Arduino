@@ -1,6 +1,11 @@
+#include <Keyboard.h>
+
+
 #define RED_PIN 3
 #define YELLOW_PIN 5
 #define GREEN_PIN 6
+
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -14,37 +19,29 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   int sensorValue = analogRead(A0);
-  int sensorValue2 = analogRead(A0);
-  Serial.print("Analog value: ");
-  Serial.println(sensorValue);
 
-  float voltage = sensorValue * (5.0 / 1023.0);
-  sensorValue2 = map(sensorValue2, 0, 1023, 0, 5000);
-  float voltage2 = (float)sensorValue2;
-
-
-  Serial.print("Voltage value 1: ");
-  Serial.println(voltage);
-  Serial.print("Sensor value 2: ");
-  Serial.println(voltage2);
+  float voltage = sensorValue * (5000.0 / 1023.0);
 
   float temperature = (voltage / 10);
-  float temperature2 = (voltage2 / 10);
-  Serial.print("Temperature: ");
-  Serial.println(temperature);
-  Serial.print("Temperature2: ");
-  Serial.print(temperature2);
-  Serial.println("°C");
 
-  if (temperature > 25) {
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  char x = 176;
+  //Serial.print(x);
+ // Serial.print(char(176));
+  Serial.write(0xC2);
+  Serial.write(0xB0);
+  Serial.println("C");
+
+  if (temperature > 27) {
     digitalWrite(RED_PIN, HIGH);
     digitalWrite(YELLOW_PIN, LOW);
     digitalWrite(GREEN_PIN, LOW);
-  } else if (temperature > 15) {
+  } else if (temperature > 25) {
     digitalWrite(RED_PIN, LOW);
     digitalWrite(YELLOW_PIN, HIGH);
     digitalWrite(GREEN_PIN, LOW);
-  } else if (temperature > 5) {
+  } else if (temperature > 20) {
     digitalWrite(RED_PIN, LOW);
     digitalWrite(YELLOW_PIN, LOW);
     digitalWrite(GREEN_PIN, HIGH);
@@ -53,5 +50,5 @@ void loop() {
     digitalWrite(YELLOW_PIN, LOW);
     digitalWrite(GREEN_PIN, LOW);
   }
-  delay(2000);
+  delay(500);
 }

@@ -11,44 +11,108 @@
 // Creates an LCD object. Parameters: (rs, enable, d4, d5, d6, d7)
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
+int flag = 0;
+int32_t timer = millis();
+int timerLevel = 1000;
 int counter = 0;
+int timerLED = 1;
+int buttonState;
+int lastButtonState = 0;
+int lastDebounceTime = 0;
+unsigned long debounceDelay = 50;
 
 void setup()
 {
-    Serial.begin(115200);
-    lcd.init();
-    lcd.backlight();
-    lcd.clear();
+  Serial.begin(115200);
+  lcd.init();
+  lcd.backlight();
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Counter: ");
+  lcd.setCursor(0, 1);
+  lcd.print(counter);
 
-    pinMode(BUTTON_PIN, OUTPUT);
-    pinMode(LED1_PIN, OUTPUT);
-    pinMode(LED2_PIN, OUTPUT);
-    pinMode(LED3_PIN, OUTPUT);
-    pinMode(LED4_PIN, OUTPUT);
-    pinMode(LED5_PIN, OUTPUT);
-
-
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+  pinMode(LED5_PIN, OUTPUT);
 }
 
 void loop()
 {
+  int currentButtonState = digitalRead(BUTTON_PIN);
+
+  if (currentButtonState != lastButtonState)
+    {
+      lastDebounceTime = timer;
+    }
+
+  if ((timer - lastDebounceTime) > debounceDelay)
+  {
+    if (currentButtonState != buttonState)
+    {
+      buttonState = currentButtonState;
+
+      if (buttonState == LOW && flag == 1)
+      {
+        timerLevel -= 100;
+        counter += 1;
+        lcd.setCursor(0, 1);
+        lcd.print(counter);
+        Serial.println(counter);
+      }
+    }
+  }
+
+  if (timer % 200 == 0)
+  {
+    if (digitalRead(BUTTON_PIN) == LOW && flag == 1)
+    {
+    }
+  }
+
+  if (timer % 5000 == 0)
+  {
+    Serial.println("im in");
+    timerLED += 1;
+    if (timerLED == 6)
+    {
+      timerLED = 1;
+    }
+  }
+
+  switch (timerLED)
+  {
+  case 1:
+    digitalWrite(LED5_PIN, LOW);
     digitalWrite(LED1_PIN, HIGH);
-    delay(1000);
+    break;
+
+  case 2:
     digitalWrite(LED1_PIN, LOW);
     digitalWrite(LED2_PIN, HIGH);
-    delay(1000);
+    break;
+  case 3:
     digitalWrite(LED2_PIN, LOW);
     digitalWrite(LED3_PIN, HIGH);
-    delay(1000);
+    flag = 1;
+    break;
+
+  case 4:
+    flag = 0;
     digitalWrite(LED3_PIN, LOW);
     digitalWrite(LED4_PIN, HIGH);
-    delay(1000);
+    break;
+
+  case 5:
     digitalWrite(LED4_PIN, LOW);
     digitalWrite(LED5_PIN, HIGH);
-    delay(1000);
-    digitalWrite(LED5_PIN, LOW);
+    break;
+  }
 
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.setCursor(0, 1);
+  timer++;
+
+  // delay(timerLevel);
 }

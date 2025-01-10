@@ -1,0 +1,197 @@
+\doxysection{Ex12\+LCDGame.\+ino File Reference}
+\hypertarget{_ex12_l_c_d_game_8ino}{}\label{_ex12_l_c_d_game_8ino}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+{\ttfamily \#include $<$Liquid\+Crystal\+\_\+\+I2\+C.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a318aa17e5d40e2132d2c7f6269ce7f51}{LED1\+\_\+\+PIN}}~3
+\item 
+\#define \mbox{\hyperlink{_ex12_l_c_d_game_8ino_af6f84078113b55354d20585131b386f7}{LED2\+\_\+\+PIN}}~5
+\item 
+\#define \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a4cb3ff938bcabb01494ce529ae55a542}{LED3\+\_\+\+PIN}}~6
+\item 
+\#define \mbox{\hyperlink{_ex12_l_c_d_game_8ino_aae684bb3d2f940637ccbc2adeb0e134d}{LED4\+\_\+\+PIN}}~9
+\item 
+\#define \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a1461b79814613e21bc6ebb5d8ae6e858}{LED5\+\_\+\+PIN}}~11
+\item 
+\#define \mbox{\hyperlink{_ex12_l_c_d_game_8ino_abc2ad14f0789907024ac765711ffd3da}{BUTTON\+\_\+\+PIN}}~2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Liquid\+Crystal\+\_\+\+I2C \mbox{\hyperlink{_ex12_l_c_d_game_8ino_ae084e1bc8ccb35ea289ba0ca4972ea6d}{lcd}} (0x27, 16, 2)
+\item 
+void \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{_ex12_l_c_d_game_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\item 
+void \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a4a044a8c1b2c12e0db9afba4ff57aac8}{won}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_ex12_l_c_d_game_8ino_adf916204820072417ed73a32de1cefcf}{flag}} = 0
+\item 
+int \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a9848674037703b4e7466a4b8b2bc0970}{counter\+Flag}} = 1
+\item 
+int32\+\_\+t \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a4b76ad35aa7fc1f857dec19b4824db7e}{timer}} = 0
+\item 
+int \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a2cf85e1208e1d597fa4a404d14e21360}{timer\+LED}} = 5000
+\item 
+int \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a15cedbcb33dd69bcd91a0d76d47b2ad5}{LED}} = 1
+\item 
+int \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a5002611f83f5a861df12917dd5651db8}{button\+State}}
+\item 
+int \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a66f761d0471e843051f3c49af5a1cb82}{last\+Button\+State}} = 0
+\item 
+int \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a332d2347719d1df33b6c98654b8f5fc1}{last\+Debounce\+Time}} = 0
+\item 
+unsigned long \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a77d7d18f51343feebbe6d0eea7b4ac57}{debounce\+Delay}} = 50
+\item 
+int \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a799cdb87ae0ea80bad00fef0351b661c}{hit\+Counter}} = 0
+\item 
+int \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a78a8c072c10af5d6102e2ec106acc3de}{miss\+Counter}} = 0
+\item 
+int \mbox{\hyperlink{_ex12_l_c_d_game_8ino_a74f3354f47c50d22b4ed9f54a6e49060}{current\+Counter}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_ex12_l_c_d_game_8ino_abc2ad14f0789907024ac765711ffd3da}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!BUTTON\_PIN@{BUTTON\_PIN}}
+\index{BUTTON\_PIN@{BUTTON\_PIN}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{BUTTON\_PIN}{BUTTON\_PIN}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_abc2ad14f0789907024ac765711ffd3da} 
+\#define BUTTON\+\_\+\+PIN~2}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a318aa17e5d40e2132d2c7f6269ce7f51}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!LED1\_PIN@{LED1\_PIN}}
+\index{LED1\_PIN@{LED1\_PIN}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{LED1\_PIN}{LED1\_PIN}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a318aa17e5d40e2132d2c7f6269ce7f51} 
+\#define LED1\+\_\+\+PIN~3}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_af6f84078113b55354d20585131b386f7}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!LED2\_PIN@{LED2\_PIN}}
+\index{LED2\_PIN@{LED2\_PIN}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{LED2\_PIN}{LED2\_PIN}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_af6f84078113b55354d20585131b386f7} 
+\#define LED2\+\_\+\+PIN~5}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a4cb3ff938bcabb01494ce529ae55a542}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!LED3\_PIN@{LED3\_PIN}}
+\index{LED3\_PIN@{LED3\_PIN}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{LED3\_PIN}{LED3\_PIN}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a4cb3ff938bcabb01494ce529ae55a542} 
+\#define LED3\+\_\+\+PIN~6}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_aae684bb3d2f940637ccbc2adeb0e134d}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!LED4\_PIN@{LED4\_PIN}}
+\index{LED4\_PIN@{LED4\_PIN}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{LED4\_PIN}{LED4\_PIN}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_aae684bb3d2f940637ccbc2adeb0e134d} 
+\#define LED4\+\_\+\+PIN~9}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a1461b79814613e21bc6ebb5d8ae6e858}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!LED5\_PIN@{LED5\_PIN}}
+\index{LED5\_PIN@{LED5\_PIN}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{LED5\_PIN}{LED5\_PIN}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a1461b79814613e21bc6ebb5d8ae6e858} 
+\#define LED5\+\_\+\+PIN~11}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_ex12_l_c_d_game_8ino_ae084e1bc8ccb35ea289ba0ca4972ea6d}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!lcd@{lcd}}
+\index{lcd@{lcd}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{lcd()}{lcd()}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_ae084e1bc8ccb35ea289ba0ca4972ea6d} 
+Liquid\+Crystal\+\_\+\+I2C lcd (\begin{DoxyParamCaption}\item[{0x27}]{}{, }\item[{16}]{}{, }\item[{2}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_afe461d27b9c48d5921c00d521181f12f}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!loop@{loop}}
+\index{loop@{loop}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a4fc01d736fe50cf5b977f755b675f11d}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!setup@{setup}}
+\index{setup@{setup}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a4a044a8c1b2c12e0db9afba4ff57aac8}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!won@{won}}
+\index{won@{won}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{won()}{won()}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a4a044a8c1b2c12e0db9afba4ff57aac8} 
+void won (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_ex12_l_c_d_game_8ino_a5002611f83f5a861df12917dd5651db8}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!buttonState@{buttonState}}
+\index{buttonState@{buttonState}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{buttonState}{buttonState}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a5002611f83f5a861df12917dd5651db8} 
+int button\+State}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a9848674037703b4e7466a4b8b2bc0970}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!counterFlag@{counterFlag}}
+\index{counterFlag@{counterFlag}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{counterFlag}{counterFlag}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a9848674037703b4e7466a4b8b2bc0970} 
+int counter\+Flag = 1}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a74f3354f47c50d22b4ed9f54a6e49060}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!currentCounter@{currentCounter}}
+\index{currentCounter@{currentCounter}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{currentCounter}{currentCounter}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a74f3354f47c50d22b4ed9f54a6e49060} 
+int current\+Counter = 0}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a77d7d18f51343feebbe6d0eea7b4ac57}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!debounceDelay@{debounceDelay}}
+\index{debounceDelay@{debounceDelay}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{debounceDelay}{debounceDelay}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a77d7d18f51343feebbe6d0eea7b4ac57} 
+unsigned long debounce\+Delay = 50}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_adf916204820072417ed73a32de1cefcf}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!flag@{flag}}
+\index{flag@{flag}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{flag}{flag}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_adf916204820072417ed73a32de1cefcf} 
+int flag = 0}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a799cdb87ae0ea80bad00fef0351b661c}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!hitCounter@{hitCounter}}
+\index{hitCounter@{hitCounter}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{hitCounter}{hitCounter}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a799cdb87ae0ea80bad00fef0351b661c} 
+int hit\+Counter = 0}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a66f761d0471e843051f3c49af5a1cb82}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!lastButtonState@{lastButtonState}}
+\index{lastButtonState@{lastButtonState}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{lastButtonState}{lastButtonState}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a66f761d0471e843051f3c49af5a1cb82} 
+int last\+Button\+State = 0}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a332d2347719d1df33b6c98654b8f5fc1}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!lastDebounceTime@{lastDebounceTime}}
+\index{lastDebounceTime@{lastDebounceTime}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{lastDebounceTime}{lastDebounceTime}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a332d2347719d1df33b6c98654b8f5fc1} 
+int last\+Debounce\+Time = 0}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a15cedbcb33dd69bcd91a0d76d47b2ad5}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!LED@{LED}}
+\index{LED@{LED}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{LED}{LED}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a15cedbcb33dd69bcd91a0d76d47b2ad5} 
+int LED = 1}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a78a8c072c10af5d6102e2ec106acc3de}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!missCounter@{missCounter}}
+\index{missCounter@{missCounter}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{missCounter}{missCounter}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a78a8c072c10af5d6102e2ec106acc3de} 
+int miss\+Counter = 0}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a4b76ad35aa7fc1f857dec19b4824db7e}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!timer@{timer}}
+\index{timer@{timer}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a4b76ad35aa7fc1f857dec19b4824db7e} 
+int32\+\_\+t timer = 0}
+
+\Hypertarget{_ex12_l_c_d_game_8ino_a2cf85e1208e1d597fa4a404d14e21360}\index{Ex12LCDGame.ino@{Ex12LCDGame.ino}!timerLED@{timerLED}}
+\index{timerLED@{timerLED}!Ex12LCDGame.ino@{Ex12LCDGame.ino}}
+\doxysubsubsection{\texorpdfstring{timerLED}{timerLED}}
+{\footnotesize\ttfamily \label{_ex12_l_c_d_game_8ino_a2cf85e1208e1d597fa4a404d14e21360} 
+int timer\+LED = 5000}
+

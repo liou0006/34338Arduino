@@ -1,0 +1,23 @@
+var NAVTREEINDEX0 =
+{
+"_ex14_animals_8ino.html":[1,0,0],
+"_ex14_animals_8ino.html#a4fc01d736fe50cf5b977f755b675f11d":[1,0,0,3],
+"_ex14_animals_8ino.html#a736fb30f22ce5a6da4b28f7002772c41":[1,0,0,2],
+"_ex14_animals_8ino.html#aaffd956870eae8c0b804edefa55213c5":[1,0,0,4],
+"_ex14_animals_8ino.html#afe461d27b9c48d5921c00d521181f12f":[1,0,0,1],
+"annotated.html":[0,0],
+"classes.html":[0,1],
+"files.html":[1,0],
+"functions.html":[0,2,0],
+"functions_vars.html":[0,2,1],
+"globals.html":[1,1,0],
+"globals_func.html":[1,1,1],
+"index.html":[],
+"pages.html":[],
+"struct_animal.html":[0,0,0],
+"struct_animal.html#a055c4df7dacb89eb4c2ca9bbee11ff24":[0,0,0,4],
+"struct_animal.html#a2bc355e2503f608b8fa78040c44b8974":[0,0,0,1],
+"struct_animal.html#a2efb74f662a1775223a2e4f0e5ccbd62":[0,0,0,3],
+"struct_animal.html#a38d08d48cf5b16863bb40fa731b06629":[0,0,0,0],
+"struct_animal.html#a3c403dfc6a1ab389a400a897fcff7737":[0,0,0,2]
+};

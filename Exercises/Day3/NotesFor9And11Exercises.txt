@@ -1,0 +1,21 @@
+9a 
+The output of the sensor is 0mV + 10.0mV/Celsius. For the ADC in A0, we have a 10-bit ADC, with voltage range from 0-5.
+
+9b 
+the code will output 0246 as a char. For each iteration it will print first 0, 2, 4 , 6, and will add the value to the '0' char. Since no println, then 
+
+9c 
+write reference to asci characters, and hence numbers will translate to characters, where print will print the "symbols" or values that are written in human language. 
+
+9d 
+bit value was 48, which times 5 would be 250mV ish... 
+also sensitivity is 0.5 deg celsius... 
+
+
+11a 
+I2C works with a master and slaves. It has a data transmission line and a clock transmission line for synchronization. The data will be transmitted as 8 bits. It is a half-duplex setup, but with fairly slows transmission rate. Clock and Data line is set low when transmission is wanted. 
+
+
+
+11b 
+only write when something changes, or write less often. It can also be to only write e.g. where the number is displayed, and just keep the text constant. So basically only update when some pixels change, and only update these. 

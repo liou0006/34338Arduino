@@ -12,8 +12,8 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 int flag = 0;
-int32_t timer = millis();
-int timerLevel = 0;
+int32_t timer = 0;
+float timerLevel = 1.0;
 int hitCounter = 0;
 int timerLED = 1;
 int buttonState;
@@ -25,7 +25,8 @@ int missCounter = 0;
 int currentCounter = 0;
 float difficulty = 1.1;
 
-void setup() {
+void setup()
+{
   Serial.begin(115200);
   lcd.init();
   lcd.backlight();
@@ -45,29 +46,35 @@ void setup() {
   pinMode(LED5_PIN, OUTPUT);
 }
 
-void loop() {
+void loop()
+{
   int currentButtonState = digitalRead(BUTTON_PIN);
 
-  if (currentButtonState != lastButtonState) {
+  if (currentButtonState != lastButtonState)
+  {
     lastDebounceTime = timer;
   }
 
-  if ((timer - lastDebounceTime) > debounceDelay) {
-    if (currentButtonState != buttonState) {
+  if ((timer - lastDebounceTime) > debounceDelay)
+  {
+    if (currentButtonState != buttonState)
+    {
       buttonState = currentButtonState;
 
-      if (buttonState == LOW && flag == 1) {
-        if (counterFlag == 1) {
-          hitCounter += 1;
+      if (buttonState == LOW && flag == 1)
+      {
+        if (counterFlag == 1)
+        {
+          hitCounter++;
           counterFlag = 0;
-          timerLevel += 100;
+          timerLevel += 0.5;
         }
         timer += 100;
         lcd.setCursor(6, 0);
         lcd.print(hitCounter);
-
-
-      } else if (buttonState == LOW && flag == 0) {
+      }
+      else if (buttonState == LOW && flag == 0)
+      {
         digitalWrite(LED1_PIN, LOW);
         digitalWrite(LED2_PIN, LOW);
         digitalWrite(LED3_PIN, LOW);
@@ -87,7 +94,9 @@ void loop() {
         lcd.print(("Miss: "));
         lcd.print(missCounter);
 
-        if (missCounter == 3) {
+        if (missCounter == 3)
+        {
+          timerLevel = 1.0;
           missCounter = 0;
           hitCounter = 0;
           lcd.clear();
@@ -107,42 +116,47 @@ void loop() {
   //   }
   // }
 
-  if (timer % 5000 == 0) {
+  if (timer % 5000 == 0)
+  {
     timerLED += 1;
-    if (timerLED == 6) {
+    if (timerLED == 6)
+    {
       timerLED = 1;
     }
   }
 
-  switch (timerLED) {
-    case 1:
-      digitalWrite(LED5_PIN, LOW);
-      digitalWrite(LED1_PIN, HIGH);
-      counterFlag = 1;
-      break;
+  switch (timerLED)
+  {
+  case 1:
+    digitalWrite(LED5_PIN, LOW);
+    digitalWrite(LED1_PIN, HIGH);
+    counterFlag = 1;
+    break;
 
-    case 2:
-      digitalWrite(LED1_PIN, LOW);
-      digitalWrite(LED2_PIN, HIGH);
-      break;
-    case 3:
-      digitalWrite(LED2_PIN, LOW);
-      digitalWrite(LED3_PIN, HIGH);
-      flag = 1;
-      break;
+  case 2:
+    digitalWrite(LED1_PIN, LOW);
+    digitalWrite(LED2_PIN, HIGH);
+    break;
+  case 3:
+    digitalWrite(LED2_PIN, LOW);
+    digitalWrite(LED3_PIN, HIGH);
+    flag = 1;
+    break;
 
-    case 4:
-      flag = 0;
-      digitalWrite(LED3_PIN, LOW);
-      digitalWrite(LED4_PIN, HIGH);
-      break;
+  case 4:
+    flag = 0;
+    digitalWrite(LED3_PIN, LOW);
+    digitalWrite(LED4_PIN, HIGH);
+    break;
 
-    case 5:
-      digitalWrite(LED4_PIN, LOW);
-      digitalWrite(LED5_PIN, HIGH);
-      break;
+  case 5:
+    digitalWrite(LED4_PIN, LOW);
+    digitalWrite(LED5_PIN, HIGH);
+    break;
   }
 
   timer++;
+
+
 
 }

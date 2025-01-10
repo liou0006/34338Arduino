@@ -12,21 +12,23 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 int flag = 0;
+int counterFlag = 1;
+
 int32_t timer = 0;
-float timerLevel = 1.0;
-int hitCounter = 0;
-int timerLED = 1;
+//float timerLevel = 1.0;
+int timerLED = 5000;
+int LED = 1;
+
 int buttonState;
 int lastButtonState = 0;
 int lastDebounceTime = 0;
 unsigned long debounceDelay = 50;
-int counterFlag = 1;
+
+int hitCounter = 0;
 int missCounter = 0;
 int currentCounter = 0;
-float difficulty = 1.1;
 
-void setup()
-{
+void setup() {
   Serial.begin(115200);
   lcd.init();
   lcd.backlight();
@@ -46,35 +48,27 @@ void setup()
   pinMode(LED5_PIN, OUTPUT);
 }
 
-void loop()
-{
+void loop() {
   int currentButtonState = digitalRead(BUTTON_PIN);
 
-  if (currentButtonState != lastButtonState)
-  {
+  if (currentButtonState != lastButtonState) {
     lastDebounceTime = timer;
   }
 
-  if ((timer - lastDebounceTime) > debounceDelay)
-  {
-    if (currentButtonState != buttonState)
-    {
+  if ((timer - lastDebounceTime) > debounceDelay) {
+    if (currentButtonState != buttonState) {
       buttonState = currentButtonState;
 
-      if (buttonState == LOW && flag == 1)
-      {
-        if (counterFlag == 1)
-        {
+      if (buttonState == LOW && flag == 1) {
+        if (counterFlag == 1) {
           hitCounter++;
           counterFlag = 0;
-          timerLevel += 0.5;
+          timerLED -= 500;
         }
         timer += 100;
         lcd.setCursor(6, 0);
         lcd.print(hitCounter);
-      }
-      else if (buttonState == LOW && flag == 0)
-      {
+      } else if (buttonState == LOW && flag == 0) {
         digitalWrite(LED1_PIN, LOW);
         digitalWrite(LED2_PIN, LOW);
         digitalWrite(LED3_PIN, LOW);
@@ -85,7 +79,6 @@ void loop()
         lcd.print("You missed");
         missCounter++;
         delay(1000);
-
         lcd.clear();
         lcd.setCursor(0, 0);
         lcd.print("Hits: ");
@@ -94,9 +87,9 @@ void loop()
         lcd.print(("Miss: "));
         lcd.print(missCounter);
 
-        if (missCounter == 3)
-        {
-          timerLevel = 1.0;
+        //reset
+        if (missCounter == 3) {
+          timerLED = 5000;
           missCounter = 0;
           hitCounter = 0;
           lcd.clear();
@@ -111,52 +104,90 @@ void loop()
     }
   }
 
-  // if (timer % 200 == 0) {
-  //   if (digitalRead(BUTTON_PIN) == LOW && flag == 1) {
-  //   }
-  // }
-
-  if (timer % 5000 == 0)
-  {
-    timerLED += 1;
-    if (timerLED == 6)
-    {
-      timerLED = 1;
+  if (timer % timerLED == 0) {
+    if (hitCounter < 8) {
+      LED += 1;
+      if (LED == 6) {
+        LED = 1;
+      }
+    } else if (hitCounter == 10) {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("You Won!!!");
+      LED = 10;
+    } else if (hitCounter == 9) {
+      timerLED = 1500;
+      LED = random(1, 6);
+      counterFlag = 1;
+    } else if (hitCounter == 8) {
+      timerLED = 2500;
+      LED = random(1, 6);
+      counterFlag = 1;
     }
   }
 
-  switch (timerLED)
-  {
-  case 1:
-    digitalWrite(LED5_PIN, LOW);
-    digitalWrite(LED1_PIN, HIGH);
-    counterFlag = 1;
-    break;
+  switch (LED) {
+    case 1:
+      digitalWrite(LED1_PIN, HIGH);
+      digitalWrite(LED2_PIN, LOW);
+      digitalWrite(LED3_PIN, LOW);
+      digitalWrite(LED4_PIN, LOW);
+      digitalWrite(LED5_PIN, LOW);
+      counterFlag = 1;
+      break;
 
-  case 2:
-    digitalWrite(LED1_PIN, LOW);
-    digitalWrite(LED2_PIN, HIGH);
-    break;
-  case 3:
-    digitalWrite(LED2_PIN, LOW);
-    digitalWrite(LED3_PIN, HIGH);
-    flag = 1;
-    break;
+    case 2:
+      digitalWrite(LED1_PIN, LOW);
+      digitalWrite(LED2_PIN, HIGH);
+      digitalWrite(LED3_PIN, LOW);
+      digitalWrite(LED4_PIN, LOW);
+      digitalWrite(LED5_PIN, LOW);
+      break;
+    case 3:
+      digitalWrite(LED1_PIN, LOW);
+      digitalWrite(LED2_PIN, LOW);
+      digitalWrite(LED3_PIN, HIGH);
+      digitalWrite(LED4_PIN, LOW);
+      digitalWrite(LED5_PIN, LOW);
+      flag = 1;
+      break;
 
-  case 4:
-    flag = 0;
-    digitalWrite(LED3_PIN, LOW);
-    digitalWrite(LED4_PIN, HIGH);
-    break;
+    case 4:
+      flag = 0;
+      digitalWrite(LED1_PIN, LOW);
+      digitalWrite(LED2_PIN, LOW);
+      digitalWrite(LED3_PIN, LOW);
+      digitalWrite(LED4_PIN, HIGH);
+      digitalWrite(LED5_PIN, LOW);
+      break;
 
-  case 5:
-    digitalWrite(LED4_PIN, LOW);
-    digitalWrite(LED5_PIN, HIGH);
-    break;
+    case 5:
+      digitalWrite(LED1_PIN, LOW);
+      digitalWrite(LED2_PIN, LOW);
+      digitalWrite(LED3_PIN, LOW);
+      digitalWrite(LED4_PIN, LOW);
+      digitalWrite(LED5_PIN, HIGH);
+      break;
+    case 10:
+      won();
+      break;
   }
 
   timer++;
+}
 
 
-
+void won() {
+  digitalWrite(LED1_PIN, HIGH);
+  digitalWrite(LED2_PIN, HIGH);
+  digitalWrite(LED3_PIN, HIGH);
+  digitalWrite(LED4_PIN, HIGH);
+  digitalWrite(LED5_PIN, HIGH);
+  delay(1000);
+  digitalWrite(LED1_PIN, LOW);
+  digitalWrite(LED2_PIN, LOW);
+  digitalWrite(LED3_PIN, LOW);
+  digitalWrite(LED4_PIN, LOW);
+  digitalWrite(LED5_PIN, LOW);
+  delay(1000);
 }

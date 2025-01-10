@@ -87,7 +87,7 @@ void loop() {
         lcd.print(("Miss: "));
         lcd.print(missCounter);
 
-        //reset
+        //Lose state
         if (missCounter == 3) {
           timerLED = 5000;
           missCounter = 0;

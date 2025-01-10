@@ -1,0 +1,27 @@
+13a 
+the memory of a pointer is the content/rvalue of what the pointer's address/lvalue is pointing at
+
+
+13b 
+The code prints the pointer value and pointer address. The pointer value is taken from the array a, and iterates through every number. The address is the actually memory address of these values, and it starts at 100, and increment by 4 each iteration. 
+
+13c
+The value pointer is empty from our definition in the code after 5, due to the address pointer still incrementing, and hitting adresses where there is already stored information from other applications. 
+
+
+14a.
+a member is a variable declared in a struct
+
+14b.
+
+1. struct.member 
+this statement points to the variable and is usually used to call by value method. can be used to assign a value to the member 
+
+2. *(struct).member
+this statement points to the address of the variable aka the rvalue. it is used to find the address of the member in a struct
+
+3. *struct.member
+this statement points to the content of the variable aka the lvalue. can be used to reference the content of the member
+
+4. struct->member
+this statement points to the variable and is usually used to call by reference method. used to reference and show the content of the member
